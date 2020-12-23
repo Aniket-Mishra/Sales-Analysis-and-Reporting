@@ -24,7 +24,7 @@ products = {
   'Lightning Charging Cable': [14.95, 30],
   'Wired Headphones': [11.99, 34],
   'Bose SoundSport Headphones': [99.99, 25],
-  'Apple Airpods Headphones': [150, 28],
+  'Apple Airpods Headphones': [150, 30],
   'Gaming Mouse': [100, 15],
   'Mechanical Keyboard': [250, 8],
   'Normal Keyboard': [99.99, 12],
@@ -71,12 +71,14 @@ def write_row(order_number, product, order_date, address):
   return output
 
 if __name__ == '__main__':
-  order_number = 185539
+  order_number = 134245
   for month in range(1,13):
-    if month == 2: #valentines day baby
-      orders_amount = int(numpy.random.normal(loc=16000, scale=3000))
-    elif month <= 10:
+    if month == 1:
       orders_amount = int(numpy.random.normal(loc=13000, scale=4000))
+    elif month == 2:
+      orders_amount = int(numpy.random.normal(loc=17000, scale=3000))
+    elif month in range(3,11):
+      orders_amount = int(numpy.random.normal(loc=12000, scale=4000))
     elif month == 11:
       orders_amount = int(numpy.random.normal(loc=20000, scale=3000))
     else: # month == 12
@@ -103,10 +105,10 @@ if __name__ == '__main__':
         if random.random() < 0.15:
           df.loc[i] = write_row(order_number, "Lightning Charging Cable", order_date, address)
           i += 1
-        if random.random() < 0.07:
+        if random.random() < 0.05:
           df.loc[i] = write_row(order_number, "Wired Headphones", order_date, address)
           i += 1 
-        if random.random() < 0.05:
+        if random.random() < 0.07:
           df.loc[i] = write_row(order_number, "Apple Airpods Headphones", order_date, address)
           i += 1
 
@@ -114,17 +116,17 @@ if __name__ == '__main__':
         if random.random() < 0.18:
           df.loc[i] = write_row(order_number, "USB-C Charging Cable", order_date, address)
           i += 1
-        if random.random() < 0.07:
+        if random.random() < 0.05:
           df.loc[i] = write_row(order_number, "Bose SoundSport Headphones", order_date, address)
           i += 1
-        if random.random() < 0.04:
+        if random.random() < 0.07:
           df.loc[i] = write_row(order_number, "Wired Headphones", order_date, address)
           i += 1 
       elif product_choice == "Macbook Pro" or product_choice == "Macbook Air":
-        if random.random() < 0.15:
+        if random.random() < 0.16:
           df.loc[i] = write_row(order_number, "Normal Keyboard", order_date, address)
           i += 1
-        if random.random() < 0.09:
+        if random.random() < 0.04:
           df.loc[i] = write_row(order_number, "Apple Airpods Headphones", order_date, address)
           i += 1 
       elif product_choice == "Dell Laptop" or product_choice == "Lenovo Laptop":
@@ -142,10 +144,10 @@ if __name__ == '__main__':
           df.loc[i] = write_row(order_number, "Mechanical Keyboard", order_date, address)
           i += 1
         if random.random() < 0.04:
-          df.loc[i] = write_row(order_number, "Gaming Mouse", order_date, address)
-          i += 1
-        if random.random() < 0.07:
           df.loc[i] = write_row(order_number, "Wired Headphones", order_date, address)
+          i += 1
+        if random.random() < 0.08:
+          df.loc[i] = write_row(order_number, "Gaming Mouse", order_date, address)
           i += 1
 
       if random.random() <= 0.02:
